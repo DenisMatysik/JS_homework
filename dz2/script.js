@@ -33,16 +33,40 @@
 // Задание 5 I dont know
 
 // Задание 4 массивы
-let mass = ["Джаз","Блюз"] 
-let mass1 = mass.concat()
-mass1.push("Рок-н-Ролл")
-let mass2 = mass1.concat()
-mass2.splice(mass2.length-2,1,"Классика")
-let mass3 = mass2.concat()
-let removed = mass3.splice(0,1)
-alert(removed)
-let mass4 = mass3.concat()
-mass4.splice(0,0,"Рэп","Регги")
-console.log(mass,mass1,mass2,mass3,mass4)
+// let mass = ["Джаз","Блюз"] 
+// let mass1 = mass.concat()
+// mass1.push("Рок-н-Ролл")
+// let mass2 = mass1.concat()
+// mass2.splice(mass2.length-2,1,"Классика")
+// let mass3 = mass2.concat()
+// let removed = mass3.splice(0,1)
+// alert(removed)
+// let mass4 = mass3.concat()
+// mass4.splice(0,0,"Рэп","Регги")
+// console.log(mass,mass1,mass2,mass3,mass4)
 
 // Задание канкулятор
+
+// Вызов 0
+// console.group('About Me');
+// let me = [
+//     { FirstName: 'Denis' },
+//     { SecondName: 'Matysik' },
+//     { Middlename: 'Alexandrovich' },
+// ]
+//     console.table(me)
+//     console.log('age: 24');
+//     console.log('khobbi: sleep '); // this is meme
+//     console.log('quality: lazy ');
+
+// Вызов 1
+
+// Вызов 2 чёто с нета взял похожее
+function fibi(n) {
+    let result = [0, 1];
+    for (let i = 2; i < n; i++) {
+      result.push(result[i -1] + result[i - 2]);
+    }
+    return result;
+}
+console.log(fibi(99));
