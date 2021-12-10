@@ -1,0 +1,17 @@
+.alert {
+    background-color: red;
+    color: white;
+    padding: 20px;
+}
+
+.even {
+    background-color: green;
+}
+
+.odd {
+    background-color: blue;
+}
+
+.wht {
+    color: white;
+}
