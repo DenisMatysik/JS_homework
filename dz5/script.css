@@ -1,0 +1,21 @@
+.menu {
+display: flex;  
+width: 100px;
+margin: 20px 0;
+border: 1px solid black;
+padding: 5px;
+}
+
+.modal  {
+    display: flex;
+    width: 100px;
+    background-color: grey;
+}
+
+.none {
+    display: none;
+}
+
+/* .block {
+    display: block;
+} */
