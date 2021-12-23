@@ -1,0 +1,50 @@
+body{
+    position: relative;
+    height: 100vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+#numberInput{
+    width: max-content;
+}
+
+#clean{
+    width: max-content;
+}
+
+#diagramma{
+    position: absolute;
+    width: 400px;
+    height: max-content;
+    left: calc(50% - 400px);
+    top: 20%;
+    background-color: tan;
+}
+
+.diagrContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.none{
+    display: none;
+}
+
+.doxodDiagramma{
+    text-align: center;
+    font-size: 30px;
+    width: 45%;
+    margin:15px;
+    background-color: greenyellow;
+}
+
+.rashodDiagramma{
+    text-align: center;
+    font-size: 30px;
+    width: 45%;
+    margin: 15px;
+    background-color: red;
+}
