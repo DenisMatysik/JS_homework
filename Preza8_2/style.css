@@ -31,6 +31,7 @@ form{
 
 .none{
     display: none;
+    position: absolute;
 }
 
 .doxodDiagramma{
@@ -47,4 +48,37 @@ form{
     width: 45%;
     margin: 15px;
     background-color: red;
+}
+
+#email{
+    width: max-content;
+}
+
+#check{
+    width: max-content;
+}
+
+#circleinf{
+    width: max-content;
+}
+
+#squareinf{
+    width: max-content;
+}
+
+#rectangleinf{
+    width: max-content;
+}
+
+#draw{
+    width: max-content;
+}
+
+#main-inf{
+    width: max-content;
+}
+
+.figure{
+    background-color: blue;
+    position: absolute;
 }
