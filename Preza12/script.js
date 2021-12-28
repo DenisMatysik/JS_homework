@@ -40,9 +40,10 @@ const onAddElement =(e) =>{
 }
 
 const showMassage = ()=>{
-    function show () {
-    text.innerText="важное сообщение - ABOBA"; }
-    setTimeout(show,5000)
+    function show() {
+        text.innerText="важное сообщение - ABOBA"; 
+    }
+    setTimeout(show,5000)//;
 }
 
 const deleteMessage =()=>{
