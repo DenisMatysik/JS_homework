@@ -1,5 +1,5 @@
 // Задание 1
-// const close = (e) => {
+// const close = (e) => { //onClose, к примру
 //     document.getElementsByClassName("modal")[0].classList.add('none');
 // }
 // const show = (e) => {
@@ -7,13 +7,14 @@
 // }
 // document.getElementsByClassName("menu")[0].addEventListener('mouseenter', close); 
 // document.getElementsByClassName("menu")[0].addEventListener('mouseleave', show);
-// document.getElementsByClassName("punkt")[0].addEventListener('mouseleave', show);
-// document.getElementsByClassName("punkt")[1].addEventListener('mouseleave', show);
-// document.getElementsByClassName("punkt")[2].addEventListener('mouseleave', show);
-// document.getElementsByClassName("punkt")[0].addEventListener('mouseenter', close); 
-// document.getElementsByClassName("punkt")[1].addEventListener('mouseenter', close); 
-// document.getElementsByClassName("punkt")[2].addEventListener('mouseenter', close); 
 
+/*let pointsArray = document.getElementsByClassName("punkt");
+pointsArray[0].addEventListener('mouseenter', close); 
+pointsArray[0].addEventListener('mouseleave', show);
+pointsArray[1].addEventListener('mouseenter', close); 
+pointsArray[1].addEventListener('mouseleave', show);
+pointsArray[2].addEventListener('mouseenter', close); 
+pointsArray[2].addEventListener('mouseleave', show);*/
 //   Зданаие 2
 // const addText = (e) => {
 //     const newText = document.createElement('new');
