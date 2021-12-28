@@ -37,3 +37,4 @@ let obj = {
     sum : sum,}  
     console.log(obj)}
 itog();
+//начинай писать на английском
