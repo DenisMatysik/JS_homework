@@ -70,3 +70,4 @@ function fibi(n) {
     return result;
 }
 console.log(fibi(99));
+//перед пушем убирай коментарии кода. оставлять можно только пояснния
