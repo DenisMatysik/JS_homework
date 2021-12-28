@@ -64,7 +64,7 @@ function sumPrices (){
         sum = sum + other[i];
         }
         console.log(sum)
-    }
+    }//что за проблема с отступами?
 console.log(name1,name2)
 console.log(other)
 sumPrices()
