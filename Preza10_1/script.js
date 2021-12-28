@@ -33,7 +33,8 @@
 // Task4
 // let string;
 // let message = {
-//             text: string}
+//  text: string
+//};
 
 //     message.setMassage = function(string){
 //         this.text = string;
@@ -64,8 +65,8 @@
 //         width: 20}
 
 // rectangle.isEmpty = function(){
-// alert("height" in rectangle)
-// // alert("asdasd" in rectangle) - false
+// alert("height" in rectangle) //?
+// // alert("asdasd" in rectangle) - false //?
 // }
 // rectangle.isEmpty()
 
@@ -76,20 +77,20 @@ let user = {
     // phone:'',
     getinfo(){
         let vvodPromptName = prompt('VVedite imia')
-        user.name = vvodPromptName;
+        user.name = vvodPromptName;//this.name=...
         let vvodPromptEmail = prompt('VVedite email');
         user.email = vvodPromptEmail;
         let vvodPromptPhone = prompt('VVedite phone');
         user.phone = vvodPromptPhone;
     },
     introduce(){
-        if (user.hasOwnProperty('name') == true) {
+        if (user.hasOwnProperty('name') == true) {//что это?
             alert(this.name);
         }
-        if (user.hasOwnProperty('email') == true) {
+        if (user.hasOwnProperty('email') == true) {//что это?
             alert(this.name);
         }
-        if (user.hasOwnProperty('phone') == true) {
+        if (user.hasOwnProperty('phone') == true) {//что это?
             alert(this.name);
         }
 
