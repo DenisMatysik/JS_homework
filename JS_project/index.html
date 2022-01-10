@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="script.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To do List</h1>
+    <!-- Кнопки навигации -->
+    <div id="mainButn">
+        <button class="add" id="myBtn">Добавить задачу</button>
+        <button class="sort">Сортировать</button>
+        <button class="done">Выполненые задачи</button>
+    </div>
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <!-- Содержимое модального окна -->
+        <div class="modal-content">
+            <span class="close">Закрыть</span>
+            <p>Введите цель</p>
+            <input type="text" id="modalInput">
+            <input type="checkbox" name="" id="">Важное
+            <input type="checkbox" name="" id="">Срочное
+            <button class="addTags">Задать прочие метки</button>
+                <div class="tags none">
+                    <input type="text">
+                    <button class="saveTags">Сохранить</button>
+                    <button class="cancelTags">Закрыть</button>
+                </div>
+            <button class="save" id="saveGoal">Сохранить</button>
+          </div>
+    </div>
+
+    <div class="allGoals">
+        <div class="goals">
+        </div>
+    </div>
+
+   
+    
+    <button class="delete">Удалить последнюю цель</button>
+ 
+    
+</body>
+</html>
