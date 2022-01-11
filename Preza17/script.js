@@ -13,37 +13,54 @@
 //     }
 //     getTask()
 
+
+
+
+
 // Task2
 
-const url = 'https://jsonplaceholder.typicode.com/users'
+// const getGitUsersData = async function (userNames){
+//     const users = [];
+//     for( const user of userNames){
+//         let userData = await getGitUserData(user);
+//         users.push(userData);
+//     }
+//     return users;
+// }
 
-async function getUsers () {
-    console.log("start")
-    let logMass = ["Bret","Karianne","Elwyn.Skiles","Moriah.Stanton"]
-    const masLog = await fetch(url)
-    let logInfo = await masLog.json()
-    
-    for (let i=0;i<logInfo.length;i++) {
-        let userNameMass = logInfo[i].username;
-        console.log(userNameMass);
-        for (let j=0; j<logMass.length;j++) {
-            if ( logMass[j] === userNameMass){
-                console.log("Takoi polzovatek est")
-            }
-            else {console.log("kakoito chert")}
-        }
-        }
+// const getGitUserData = async function(username){
+//     return fetch(`https://api.github.com/users/${username}`)
+//     .then((res) =>{
+//         return res.json();
+//     });
+// }
+// getGitUsersData(["OlgaSon","Vikentsiy"]).then(data => console.log(data));
 
-    //     for( let j=0; j<logMass;j++){
-    //         if( logMass[j] === userNameMass ) {
-    //             console.log("taloi login est")
-    //         }
-    //         else{
-    //             console.log("takogo logina net")
-    //         }
-            
-    console.log(logInfo)
+// Task3
+
+const url = 'https://test-todoist.herokuapp.com/api/categories'
+const dataPost = { name: "Some post"}
+
+async function getTask () {
+    const response = await fetch(url)
+    const data = await response.json()
+    for (let i=0;i<data.length; i++){
+    let newDiv = document.createElement("div");
+    newDiv.innerHTML = `Task №${i+1} ${data[i].name}`;
+    document.body.appendChild(newDiv)  
+    console.log(data)}
+    }
+    getTask()
+
+// post zapros
+async function sendPost (){
+     const responseNext = await fetch(url, {
+         method: 'POST',
+         body:JSON.stringify(dataPost),
+         headers:{
+             'Content-Type': 'application/json'
+         }
+     })   
 }
 
-
-getUsers()
+document.querySelector(".btnPost").addEventListener("click", sendPost)
