@@ -122,16 +122,6 @@ function showUnfinishedTasks(){
 function showAllTasks (){
     console.log("Хочу вывести все элементы")
 }
-// function showDoneTasks (){
-// // как обратиться ко все элементам 
-//     console.log(typeof(this.users))
-//     if (document.getElementsByClassName("goalContainer")[0].classList.contains("done")) {
-//         console.log('Doen tasks')
-//     }
-//     else{
-//         console.log('Ne Doen tasks')
-//     }
-// }
 
 doneTasks.addEventListener("click", showDoneTasks)
 saveGoal.addEventListener("click", saveGoalFunctions)
