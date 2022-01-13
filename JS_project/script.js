@@ -1,10 +1,17 @@
 const saveGoal = document.getElementById("displayGoal");
+const doneTasks = document.getElementById("doneGoals");
+const allTasks = document.getElementById("allGoals");
+const unfinishedTasks = document.getElementById("unfinishedGoals");
+let numbertasks = 0;
+
 // Модальное окно
 const modal = document.getElementById("myModal");
 const btnAdd = document.getElementById("mainButton");
 const btnclose = document.getElementsByClassName("close")[0];
 btnAdd.addEventListener("click", function() {
     modal.classList.toggle("none");
+    document.getElementById("modalTitle").value = "";
+    document.getElementById("modalText").value = "";
     } 
 )  
 btnclose.addEventListener("click", function() {
@@ -17,8 +24,6 @@ window.addEventListener("click", function(event) {
         }
     }
 )
-// нужно убрать сохранившиеся значения из полей modalTitle и modalText
-
 
 class goalClass {
     constructor(nameGoal, textGoal){
@@ -26,27 +31,32 @@ class goalClass {
         this.textGoal = textGoal;
         this.id = Date.now().hashCode();
     }
+
 delete =()=>{
+    numbertasks--;
+    amount.innerText = numbertasks;
     document.getElementById(this.id).remove();
 }
 done =()=>{
     document.getElementById(this.id).classList.toggle("done");
-    if (document.getElementById(this.id).classList.contains('done')){
-        //
-        console.log("Done") 
-        console.log(this.id.goalTitleNew)
-    }
-    else{
-        console.log("Ne dOne") 
-    }
+   // как мне привязаться к одному элементу из метода displayGoal чтоб изменить название кпонки done на "Не выполнено";
+    // чтоб я мог возвращать в список невыполненные дела
 }
 edit =()=>{
-    modal.classList.toggle("none"); 
+    document.getElementById(this.id).classList.toggle("edit");
+    modal.classList.toggle("none");
+    document.getElementById("modalTitle").value = this.nameGoal;
+    document.getElementById("modalText").value = this.textGoal;
+    // как перезписать значения в то же место
+    
 }
     displayGoal(){
-        const user = document.createElement("ul");
-        user.className = "goalContainer";
-        user.id = this.id;
+        numbertasks++;
+        amount.innerText = numbertasks;
+        modal.classList.toggle("none");
+        const goal = document.createElement("ul");
+        goal.className = "goalContainer";
+        goal.id = this.id;
         const id = document.createElement("li")
         id.innerHTML = this.id;
         const goalTitleNew = document.createElement("h2")
@@ -73,10 +83,10 @@ edit =()=>{
         goalsButtons.appendChild(deleteB);
         goalsButtons.appendChild(doneB)
         // user.appendChild(id);
-        user.appendChild(goalTitleNew);
-        user.appendChild(goalTextNew);
-        user.appendChild(goalsButtons);
-        document.getElementsByClassName("allGoals")[0].appendChild(user);
+        goal.appendChild(goalTitleNew);
+        goal.appendChild(goalTextNew);
+        goal.appendChild(goalsButtons);
+        document.getElementsByClassName("allGoals")[0].appendChild(goal);
     }
 }
     Number.prototype.hashCode = function () {   
@@ -84,27 +94,51 @@ edit =()=>{
     };
 
 
-// тут нужно значениее из input подтянуть
-const modalTitleInput = document.getElementById("modalTitle");
-const modalTextInput = document.getElementById("modalText");
-const newUsers = [modalTitleInput, modalTextInput.value];
-const users = newUsers.map(element => {
-return new goalClass(element[0],element[1]);
-});
-
 function saveGoalFunctions (){
-    users.forEach((user)=>user.displayGoal());
+    const modalTitleInput = document.getElementById("modalTitle");
+    const modalTextInput = document.getElementById("modalText");
+    const newGoals = [[modalTitleInput.value, modalTextInput.value]];
+    const goals = newGoals.map(element => {
+    return new goalClass(element[0],element[1]);
+});
+goals.forEach((goal)=>goal.displayGoal());
+}
+function showDoneTasks (){
+    for ( let i=0; i<numbertasks;i++) {
+    if (document.getElementsByClassName("goalContainer")[i].classList.contains("done")){
+        console.log('Задача выполнена')
+    }
+}
 }
 
-saveGoal.addEventListener("click", saveGoalFunctions)
-
-// const newUsers = [["asd"],["asd"]];
-// const users = newUsers.map(element => {
-// return new goalClass(element[0],element[1]);
-// });
-
-// function saveGoalFunctions (){
-//     users.forEach((user)=>user.displayGoal());
+function showUnfinishedTasks(){
+    for ( let i=0; i<numbertasks;i++) {
+        if (document.getElementsByClassName("goalContainer")[i].classList.contains("done") == false){
+            console.log(document.getElementsByClassName("goalContainer")[i].classList.contains("done"))
+            console.log('Задача не выполнена');
+        }
+}
+}
+function showAllTasks (){
+    console.log("Хочу вывести все элементы")
+}
+// function showDoneTasks (){
+// // как обратиться ко все элементам 
+//     console.log(typeof(this.users))
+//     if (document.getElementsByClassName("goalContainer")[0].classList.contains("done")) {
+//         console.log('Doen tasks')
+//     }
+//     else{
+//         console.log('Ne Doen tasks')
+//     }
 // }
 
-// saveGoal.addEventListener("click", saveGoalFunctions)
+doneTasks.addEventListener("click", showDoneTasks)
+saveGoal.addEventListener("click", saveGoalFunctions)
+allTasks.addEventListener("click", showAllTasks)
+unfinishedTasks.addEventListener("click", showUnfinishedTasks)
+
+
+let amount = document.createElement("div");
+amount.innerText = numbertasks;
+document.getElementsByClassName("numberTasks")[0].appendChild(amount)

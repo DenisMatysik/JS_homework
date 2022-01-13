@@ -244,5 +244,15 @@ background-color: rgba(0,0,0,0.4);
 
 .done{
   background-color: grey;
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
+}
+
+.edit{
+}
+
+.numberTasks{
+  color: #007bff ;
+  justify-content: center;
+  display: flex;
+  margin-top: 80px;
 }
