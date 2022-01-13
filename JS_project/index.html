@@ -10,40 +10,20 @@
 </head>
 <body>
     <h1>To do List</h1>
-    <!-- Кнопки навигации -->
-    <div id="mainButn">
-        <button class="add" id="myBtn">Добавить задачу</button>
-        <button class="sort">Сортировать</button>
-        <button class="done">Выполненые задачи</button>
-    </div>
-    <!-- Модальное окно -->
-    <div id="myModal" class="modal">
-        <!-- Содержимое модального окна -->
+    <button class="mainAdd allBtn" id="mainButton">Добавить задачу</button>
+    <div id="myModal" class="modal none">
         <div class="modal-content">
-            <span class="close">Закрыть</span>
-            <p>Введите цель</p>
-            <input type="text" id="modalInput">
-            <input type="checkbox" name="" id="">Важное
-            <input type="checkbox" name="" id="">Срочное
-            <button class="addTags">Задать прочие метки</button>
-                <div class="tags none">
-                    <input type="text">
-                    <button class="saveTags">Сохранить</button>
-                    <button class="cancelTags">Закрыть</button>
-                </div>
-            <button class="save" id="saveGoal">Сохранить</button>
-          </div>
-    </div>
-
-    <div class="allGoals">
-        <div class="goals">
+            <button class="close allBtn">Закрыть</button>
+            <input type="text" id="modalTitle" placeholder="Введите цель"></input>
+            <input type="text" id="modalText" rows="6" placeholder="Описание цели"></input>
+            <button class="save allBtn" id="displayGoal">Сохранить</button>
         </div>
     </div>
-
-   
-    
-    <button class="delete">Удалить последнюю цель</button>
- 
-    
-</body>
+    <div class="btnNav">
+        <button id="doneGoals" class="allBtn">Завершённые задачи</button>
+        <button id="allGoals" class="allBtn">Все задачи</button>
+        <button id="unfinishedGoals" class="allBtn">Не завершённые задачи</button>
+    </div>
+    <div class="allGoals">
+    </div>
 </html>

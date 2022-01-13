@@ -1,67 +1,248 @@
+body{
+  margin: 20px;
+}
+
 h1{
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;    
+  padding:20px;
+  background-color: darkblue;
+  color: white;
+  display: flex;
+  font-size: 52px;
+  justify-content: center;
+  height: max-content;
+  border-radius: 10px;
 }
 
-li {
-    list-style-type: none;
-}
-.none{
-    display: none;
-}
-
-.allGoals{
-    background-color: darkgrey;
-    min-height: 100px;
-    margin: 20px 0px;
+.allBtn{
+  border-radius: 10px;
+  width: max-content;
+  color: #fff;
 }
 
+.allBtn:hover,
+.allBtn:hover
+{
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
 
+li{
+  list-style: none;
+}
 
+.mainAdd{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 32px;
+  background-color: #007bff;
+  border-color: #007bff;
+}
 
-/* Модальный (фон) */
+.mainAdd:hover,
+.mainAdd:focus {
+  color: #007bff;
+}
+  
 .modal {
-    display: none; /* Скрыто по умолчанию */
-    position: fixed; /* Оставаться на месте */
-    z-index: 1; /* Сидеть на вершине */
-    padding-top: 100px; /* Расположение коробки */
-    left: 0;
-    top: 0;
-    width: 100%; /* Полная ширина */
-    height: 100%; /* Полная высота */
-    overflow: auto; /* Включите прокрутку, если это необходимо */
-    background-color: rgb(0,0,0); /* Цвет запасной вариант  */
-    background-color: rgba(0,0,0,0.4); /*Черный с непрозрачностью */
-  }
-  
-  /* Модальное содержание */
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
+/* display: none;  */
+position: fixed; 
+z-index: 1; /* Сидеть на вершине */
+padding-top: 100px; 
+left: 0;
+top: 0;
+width: 100%; 
+height: 100%; 
+overflow: auto; 
+background-color: rgba(0,0,0,0.4); 
+}
 
-  
-  /* Кнопка закрытия */
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
 
-  .goalBtns{
-    margin: 10px;
-    display: none;
-  }
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.save{
+  margin-top: 10px;
+  border-color: #007bff;
+  background-color: #007bff;
+}
+
+.save:hover,
+.save:focus {
+  color: #007bff;
+}
+
+.close {
+  border-color: #dc3545 ;
+  background-color: #dc3545;
+  margin-left: auto;
+  font-size: 25px;
+}
+
+.close:hover,
+.close:focus {
+  color: #dc3545;
+}
+
+#modalTitle{
+  margin: 10px;
+  height: max-content;
+  width: 50%;
+}
+
+#modalText{
+  height: max-content;
+  margin: 10px;
+  width: 80%;
+}
+
+.none{
+  display: none;
+}
+
+.btnNav{
+  display: flex;
+  justify-content: space-around;
+}
+
+#doneGoals{
+  background-color: #ffc107;
+  border-color: #ffc107;
+  
+}
+
+#doneGoals:hover,
+#doneGoals:focus {
+  color: #ffc107;
+  background-color: white;
+}
+
+
+#allGoals{
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+#allGoals:hover,
+#allGoals:focus {
+  color: #17a2b8;
+  background-color: white;
+}
+
+#unfinishedGoals{
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+#unfinishedGoals:hover,
+#unfinishedGoals:focus {
+  color: #28a745;
+  background-color: white;
+}
+
+.doneBtn{
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.doneBtn:hover,
+.doneBtn:focus{
+  color: #28a745;
+}
+
+.deleteBtn{
+  border-color: #dc3545 ;
+  background-color: #dc3545;
+}
+
+.deleteBtn:hover,
+.deleteBtn:focus{
+  color: #dc3545;
+}
+
+.goalTitle{
+  margin: 0;
+}
+
+.goalContainer{
+  border: 1px solid grey;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+}
+
+.goalsButtons {
+  display: flex;
+  justify-content: space-between
+}
+
+.buttonDelete{
+  border-color: #dc3545 ;
+  background-color: #dc3545;
+  border-radius: 10px;
+  width: max-content;
+  color: #fff;
+}
+
+
+.buttonDelete:hover,
+.buttonDelete:hover
+{
+  color: #dc3545 ;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.buttonChange{
+  border-color: #007bff;
+  background-color: #007bff;
+  border-radius: 10px;
+  width: max-content;
+  color: #fff;
+}
+
+.buttonChange:hover,
+.buttonChange:hover
+{
+  color: #007bff ;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.doneGoal{
+  background-color: #28a745;
+  border-color: #28a745;
+  border-radius: 10px;
+  width: max-content;
+  color: #fff;
+}
+
+.doneGoal:hover,
+.doneGoal:hover
+{
+  color: #28a745 ;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.done{
+  background-color: grey;
+  text-decoration: line-through;
+}

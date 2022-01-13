@@ -1,57 +1,110 @@
+const saveGoal = document.getElementById("displayGoal");
 // Модальное окно
 const modal = document.getElementById("myModal");
-const btn = document.getElementById("myBtn");
-const span = document.getElementsByClassName("close")[0];
-btn.addEventListener("click", function() {
-    modal.style.display = "block";
+const btnAdd = document.getElementById("mainButton");
+const btnclose = document.getElementsByClassName("close")[0];
+btnAdd.addEventListener("click", function() {
+    modal.classList.toggle("none");
     } 
 )  
-span.addEventListener("click", function() {
-    modal.style.display = "none";
+btnclose.addEventListener("click", function() {
+    modal.classList.toggle("none");
     }
 )
-// Клик везде кроме модального окна закроет его
 window.addEventListener("click", function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == modal) { 
+    modal.classList.toggle("none");
         }
     }
 )
-
-const saveGoal = document.getElementById("saveGoal");
-saveGoal.addEventListener("click", function () {
-    const buttonChange = document.createElement("button"); // изменить
-    buttonChange.innerText = "Изменить";
-    const buttonDelete = document.createElement("button"); // удалить
-    buttonDelete.innerText = "Удалить";
-    const doneGoal =  document.createElement("input"); // чекбокс (на выполнено)
-    doneGoal.type = "checkbox";
-    const tagsField = document.createElement("div"); // поле с метками
-    tagsField.innerText = "Информация о выбраных тегах";
-    let newgoal = document.createElement("div");
-    newgoal.style.padding = 10 + "px";
-    newgoal.innerText = modalInput.value;
-    document.querySelector(".goals").appendChild(doneGoal);
-    doneGoal.style.display = "none";
-    buttonChange.style.display = "none";
-    buttonDelete.style.display = "none";
-    tagsField.style.display = "none";
-    document.querySelector(".goals").appendChild(newgoal);
-    document.querySelector(".goals").appendChild(buttonChange);
-    document.querySelector(".goals").appendChild(buttonDelete);
-    document.querySelector(".goals").appendChild(tagsField);
-    newgoal.addEventListener("click", function (){
-        newgoal.style.border = "2px dotted black";
-        doneGoal.style.display = "block";
-        buttonChange.style.display = "block";
-        buttonDelete.style.display = "block";
-        tagsField.style.display = "block";
-    })
-})
+// нужно убрать сохранившиеся значения из полей modalTitle и modalText
 
 
-// Удаление последнего элемента
-function removeGoal (){
-    document.getElementsByClassName("goals")[0].lastChild.remove();
+class goalClass {
+    constructor(nameGoal, textGoal){
+        this.nameGoal = nameGoal;
+        this.textGoal = textGoal;
+        this.id = Date.now().hashCode();
+    }
+delete =()=>{
+    document.getElementById(this.id).remove();
 }
-document.getElementsByClassName("delete")[0].addEventListener("click", removeGoal);
+done =()=>{
+    document.getElementById(this.id).classList.toggle("done");
+    if (document.getElementById(this.id).classList.contains('done')){
+        //
+        console.log("Done") 
+        console.log(this.id.goalTitleNew)
+    }
+    else{
+        console.log("Ne dOne") 
+    }
+}
+edit =()=>{
+    modal.classList.toggle("none"); 
+}
+    displayGoal(){
+        const user = document.createElement("ul");
+        user.className = "goalContainer";
+        user.id = this.id;
+        const id = document.createElement("li")
+        id.innerHTML = this.id;
+        const goalTitleNew = document.createElement("h2")
+        goalTitleNew.className = "goalTitle";
+        goalTitleNew.innerText = `Название цели: ${this.nameGoal}`;
+        const goalTextNew = document.createElement("h3");
+        goalTextNew.className = "goalText"
+        goalTextNew.innerText = `Описание цели: ${this.textGoal}`;
+        const goalsButtons = document.createElement("div");
+        goalsButtons.className = "goalsButtons"     
+        const editB = document.createElement("button");
+        editB.className = "buttonChange";
+        editB.innerText="Изменить";    
+        const deleteB = document.createElement("button");
+        deleteB.className = "buttonDelete";
+        deleteB.innerText="Удалить";   
+        const doneB = document.createElement("button");
+        doneB.className = "doneGoal";
+        doneB.innerText="Выполнено";
+        deleteB.addEventListener("click",this.delete);
+        editB.addEventListener("click",this.edit);
+        doneB.addEventListener("click",this.done);
+        goalsButtons.appendChild(editB);
+        goalsButtons.appendChild(deleteB);
+        goalsButtons.appendChild(doneB)
+        // user.appendChild(id);
+        user.appendChild(goalTitleNew);
+        user.appendChild(goalTextNew);
+        user.appendChild(goalsButtons);
+        document.getElementsByClassName("allGoals")[0].appendChild(user);
+    }
+}
+    Number.prototype.hashCode = function () {   
+        return Math.floor(Math.random() * this);
+    };
+
+
+// тут нужно значениее из input подтянуть
+const modalTitleInput = document.getElementById("modalTitle");
+const modalTextInput = document.getElementById("modalText");
+const newUsers = [modalTitleInput, modalTextInput.value];
+const users = newUsers.map(element => {
+return new goalClass(element[0],element[1]);
+});
+
+function saveGoalFunctions (){
+    users.forEach((user)=>user.displayGoal());
+}
+
+saveGoal.addEventListener("click", saveGoalFunctions)
+
+// const newUsers = [["asd"],["asd"]];
+// const users = newUsers.map(element => {
+// return new goalClass(element[0],element[1]);
+// });
+
+// function saveGoalFunctions (){
+//     users.forEach((user)=>user.displayGoal());
+// }
+
+// saveGoal.addEventListener("click", saveGoalFunctions)
